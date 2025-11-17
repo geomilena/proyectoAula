@@ -1,4 +1,6 @@
+
 import javax.swing.JOptionPane;
+
 public class pag1 extends javax.swing.JFrame {
 
     /**
@@ -6,7 +8,7 @@ public class pag1 extends javax.swing.JFrame {
      */
     public pag1() {
         initComponents();
-        setSize(720,440);
+        setSize(720, 440);
         manzana.setOpaque(false);
     }
 
@@ -165,40 +167,39 @@ public class pag1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
-       
-String correo = entra_email.getText();
-String pass = entra_contraseña.getText();
 
-boolean encontrado = false;
+        String correo = entra_email.getText();
+        String pass = entra_contraseña.getText();
 
+        boolean encontrado = false;
 
-for (Usuario u : ArrayListUsuarios.listaUsuarios) {
-    if (u.getCorreo().equals(correo) && u.getContraseña().equals(pass)) {
-        JOptionPane.showMessageDialog(this, "¡Bienvenido, " + correo + "!");
-        new inicialusuario(correo).setVisible(true);
-        this.dispose();
-        encontrado = true;
-        break;
-    }
-}
+        for (Usuario u : ArrayListUsuarios.listaUsuarios) {
+            if (u.getCorreo().equals(correo) && u.getContraseña().equals(pass)) {
+                JOptionPane.showMessageDialog(this, "¡Bienvenido, " + correo + "!");
+                new inicialusuario(correo).setVisible(true);
+                this.dispose();
+                encontrado = true;
+                break;
+            }
+        }
 
-if (!encontrado) {
-    JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos");
-}
+        if (!encontrado) {
+            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos");
+        }
 
     }//GEN-LAST:event_btn_iniciarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String correo  = JOptionPane.showInputDialog("Nuevo correo:");
+        String correo = JOptionPane.showInputDialog("Nuevo correo:");
         String contraseña = JOptionPane.showInputDialog("Nueva contraseña");
-        if (correo == null || correo.trim().isEmpty()){
-            JOptionPane.showMessageDialog(null,  "Registro cancelado o correo vacio");
+        if (correo == null || correo.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Registro cancelado o correo vacio");
             return;
         }
-        
+
         Usuario nuevoUsuario = new Usuario(correo, contraseña);
         ArrayListUsuarios.listaUsuarios.add(nuevoUsuario);
-        
+
         JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
 
     }//GEN-LAST:event_jButton2ActionPerformed

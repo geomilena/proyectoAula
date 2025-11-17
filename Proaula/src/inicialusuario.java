@@ -77,6 +77,11 @@ public class inicialusuario extends javax.swing.JFrame {
         jLabel7.setText("Tipo de actividad:");
 
         entra_actividad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Sedentario", "Moderado", "Activo" }));
+        entra_actividad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entra_actividadActionPerformed(evt);
+            }
+        });
 
         borrar.setText("Borrar");
         borrar.addActionListener(new java.awt.event.ActionListener() {
@@ -273,6 +278,7 @@ public class inicialusuario extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.setPreferredSize(new java.awt.Dimension(750, 430));
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 720, 420);
 
@@ -414,6 +420,10 @@ public class inicialusuario extends javax.swing.JFrame {
     txt_estado.setText("");
     txt_recomendaciones.setText("");
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void entra_actividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entra_actividadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entra_actividadActionPerformed
 
     /**
      * @param args the command line arguments
