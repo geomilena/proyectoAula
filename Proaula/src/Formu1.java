@@ -131,11 +131,21 @@ public class Formu1 extends javax.swing.JFrame {
         jLabel3.setText("Nombre: ");
 
         nombre.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 12)); // NOI18N
+        nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 2, 14)); // NOI18N
         jLabel4.setText("Apellidos: ");
 
         apellidos.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 12)); // NOI18N
+        apellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellidosActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic Light", 2, 14)); // NOI18N
         jLabel5.setText("Correo(Inicio de Sesion):");
@@ -252,6 +262,14 @@ public class Formu1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         validarYRegistrar();
     }//GEN-LAST:event_btn_termineActionPerformed
+
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreActionPerformed
+
+    private void apellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apellidosActionPerformed
 
     /**
      * @param args the command line arguments

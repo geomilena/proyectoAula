@@ -64,7 +64,8 @@ public class UsuarioCoordinador extends Usuario {
     }
 
     
-    public String getTipoUsuario() {
+   @Override
+         public String getTipoUsuario() {
         return "Coordinador";
     }
 }
