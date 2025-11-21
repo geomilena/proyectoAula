@@ -157,7 +157,7 @@ boolean valido = false;
 for (int i = 0; i < usuarios.length; i++) {
     if (usuarios[i].equals(user) && contraseñas[i].equals(pass)) {
         JOptionPane.showMessageDialog(this, "Bienvenido coordinador");
-        new iniciocoor().setVisible(true);
+        new Formu2().setVisible(true);
         this.dispose();
         valido = true;
         break;
@@ -167,6 +167,10 @@ for (int i = 0; i < usuarios.length; i++) {
 if (!valido) {
     JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
 }
+    
+
+
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

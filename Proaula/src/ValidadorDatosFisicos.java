@@ -21,7 +21,7 @@ public class ValidadorDatosFisicos {
         } catch (NumberFormatException e) {
             return "La edad debe ser un número válido";
         }
-        return null; // No hay error
+        return null;
     }
     
     public static String getMensajeErrorEstatura(String estatura) {

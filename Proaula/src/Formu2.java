@@ -165,27 +165,16 @@ public class Formu2 extends javax.swing.JFrame {
         return;
     }
 
-    
-    DatosFisicos datosFisicos = new DatosFisicos(edad, estatura, peso, genero, actividad);
+DatosFisicos datosFisicos = new DatosFisicos(edad, estatura, peso, genero, actividad);
 
-    
     double calorias = datosFisicos.getCaloriasDiarias();
     String recomendacion = datosFisicos.getRecomendacion();
 
-    
-    
     Usuario usuarioActual = this.usuarioLogueado; 
 
-    
     recomendacion pag = new recomendacion(this.usuarioLogueado, datosFisicos);
     pag.setVisible(true);
     this.dispose(); // cerrar esta ventana
-
-} catch (NumberFormatException e) {
-    JOptionPane.showMessageDialog(this, "Ingresa números válidos",
-            "Error", JOptionPane.ERROR_MESSAGE);
-}
-
     }//GEN-LAST:event_btn_continuarActionPerformed
 
     /**

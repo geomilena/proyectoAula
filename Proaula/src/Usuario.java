@@ -1,8 +1,9 @@
-public class Usuario {
-    private String nombre;
-    private String apellidos;
-    private String correo;
-    private String contraseña;
+public abstract class Usuario {
+    protected String nombre;
+    protected String apellidos;
+    protected String correo;
+    protected String contraseña;
+    
     
     public Usuario(String nombre, String apellidos, String correo, String contraseña) {
         this.nombre = nombre;
@@ -11,12 +12,16 @@ public class Usuario {
         this.contraseña = contraseña;
     }
     
+    
     public Usuario(String correo, String contraseña) {
         this.nombre = "";
         this.apellidos = "";
         this.correo = correo;
         this.contraseña = contraseña;
     }
+    
+    public abstract String getTipoUsuario();
+    
     
     public String getNombre() { 
         return nombre;
