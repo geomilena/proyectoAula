@@ -170,21 +170,31 @@ public class pag1 extends javax.swing.JFrame {
 
         String correo = entra_email.getText();
         String pass = entra_contraseña.getText();
-
         boolean encontrado = false;
 
         for (Usuario u : ArrayListUsuarios.listaUsuarios) {
             if (u.getCorreo().equals(correo) && u.getContraseña().equals(pass)) {
-                JOptionPane.showMessageDialog(this, "¡Bienvenido, " + correo + "!");
-                new inicialusuario(correo).setVisible(true);
-                this.dispose();
                 encontrado = true;
+
+                String tipo = u.getTipoUsuario();
+
+                if (tipo.equals("Usuario Normal")) {
+                    JOptionPane.showMessageDialog(this, "¡Bienvenido usuario " + u.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    new Formu2().setVisible(true);
+                } else if (tipo.equals("Coordinador")) {
+                    JOptionPane.showMessageDialog(this, "¡Bienvenido coordinador " + u.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "¡Bienvenido " + u.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    new Formu2().setVisible(true);
+                }
+
+                this.dispose();
                 break;
             }
         }
 
         if (!encontrado) {
-            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos");
+            JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_btn_iniciarActionPerformed
@@ -197,7 +207,7 @@ public class pag1 extends javax.swing.JFrame {
             return;
         }
 
-        Usuario nuevoUsuario = new Usuario(correo, contraseña);
+        Usuario nuevoUsuario = new UsuarioNormal(correo, contraseña);
         ArrayListUsuarios.listaUsuarios.add(nuevoUsuario);
 
         JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");

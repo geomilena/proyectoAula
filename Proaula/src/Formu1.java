@@ -66,7 +66,7 @@ public class Formu1 extends javax.swing.JFrame {
         }
 
         if (exito) {
-            Usuario nuevoUsuario = new Usuario(nombreText, apellidosText, correoText, claveText);
+            Usuario nuevoUsuario = new UsuarioNormal(nombreText, apellidosText, correoText, claveText);
             ArrayListUsuarios.listaUsuarios.add(nuevoUsuario);
 
             System.out.println("Usuario guardado. Total: " + ArrayListUsuarios.listaUsuarios.size());
