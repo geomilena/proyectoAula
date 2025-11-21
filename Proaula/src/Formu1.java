@@ -16,7 +16,6 @@ public class Formu1 extends javax.swing.JFrame {
      */
     public Formu1() {
         initComponents();
-        setSize(720, 440);
     }
 
     private void validarYRegistrar() {
@@ -67,7 +66,7 @@ public class Formu1 extends javax.swing.JFrame {
         }
 
         if (exito) {
-            Usuario nuevoUsuario = new UsuarioNormal(nombreText, apellidosText, correoText, claveText);
+            Usuario nuevoUsuario = new Usuario(nombreText, apellidosText, correoText, claveText);
             ArrayListUsuarios.listaUsuarios.add(nuevoUsuario);
 
             System.out.println("Usuario guardado. Total: " + ArrayListUsuarios.listaUsuarios.size());
@@ -106,7 +105,6 @@ public class Formu1 extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         clave = new javax.swing.JTextField();
         btn_termine = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -126,7 +124,7 @@ public class Formu1 extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setOpaque(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 36)); // NOI18N
         jLabel1.setText("Formulario Usuario");
 
         jLabel3.setFont(new java.awt.Font("Yu Gothic Light", 2, 14)); // NOI18N
@@ -165,16 +163,6 @@ public class Formu1 extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Atras");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -193,39 +181,35 @@ public class Formu1 extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(78, 78, 78)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4)
-                                .addGap(62, 62, 62))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(62, 62, 62))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(jLabel1)))
                 .addGap(108, 108, 108))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(121, 121, 121)
+                .addGap(127, 127, 127)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6)
-                .addGap(128, 128, 128))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_termine)
-                .addGap(285, 285, 285))
+                .addGap(122, 122, 122))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jButton1)
+                .addGap(291, 291, 291)
+                .addComponent(btn_termine)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(1, 1, 1)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -235,26 +219,26 @@ public class Formu1 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
                 .addComponent(btn_termine)
-                .addGap(77, 77, 77))
+                .addGap(14, 14, 14))
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 10, 660, 400);
+        jPanel2.setBounds(30, 30, 660, 400);
 
         jLabel2.setBackground(new java.awt.Color(0, 153, 102));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calcleverfondo.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 710, 430);
+        jLabel2.setBounds(0, 0, 720, 470);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -267,15 +251,7 @@ public class Formu1 extends javax.swing.JFrame {
     private void btn_termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_termineActionPerformed
         // TODO add your handling code here:
         validarYRegistrar();
-        new pag1().setVisible(true);
-        dispose();
-        //poner joption
     }//GEN-LAST:event_btn_termineActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       new pag1().setVisible(true);
-       dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,7 +283,6 @@ public class Formu1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_termine;
     private javax.swing.JTextField clave;
     private javax.swing.JTextField correo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
