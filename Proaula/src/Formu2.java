@@ -8,7 +8,7 @@
  * @author Pynky
  */
 public class Formu2 extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Formu2.class.getName());
 
     /**
@@ -16,6 +16,14 @@ public class Formu2 extends javax.swing.JFrame {
      */
     public Formu2() {
         initComponents();
+        javax.swing.ButtonGroup grupoGenero = new javax.swing.ButtonGroup();
+        grupoGenero.add(rd_masculino);
+        grupoGenero.add(rd_femenino);
+
+        javax.swing.ButtonGroup grupoActividad = new javax.swing.ButtonGroup();
+        grupoActividad.add(rd_sedentario);
+        grupoActividad.add(rd_moderado);
+        grupoActividad.add(rd_activo);
     }
 
     /**
@@ -27,21 +35,162 @@ public class Formu2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txt_edad = new javax.swing.JTextField();
+        txt_estatura = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_peso = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        rd_masculino = new javax.swing.JRadioButton();
+        rd_femenino = new javax.swing.JRadioButton();
+        rd_sedentario = new javax.swing.JRadioButton();
+        rd_moderado = new javax.swing.JRadioButton();
+        rd_activo = new javax.swing.JRadioButton();
+        btn_continuar = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        daaaa = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator1.setForeground(new java.awt.Color(0, 102, 255));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 460, 10));
+
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel2.setText("Datos Físicos");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 240, 50));
+
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        jLabel1.setText("Edad:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 40, -1));
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        jLabel3.setText("Estatura(cm):");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 140, 90, -1));
+
+        txt_edad.setFont(new java.awt.Font("Yu Gothic UI", 2, 12)); // NOI18N
+        getContentPane().add(txt_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 110, 30));
+
+        txt_estatura.setFont(new java.awt.Font("Yu Gothic UI", 2, 12)); // NOI18N
+        getContentPane().add(txt_estatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 110, 30));
+
+        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        jLabel4.setText("Peso(kg):");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 140, 60, -1));
+
+        txt_peso.setFont(new java.awt.Font("Yu Gothic UI", 2, 12)); // NOI18N
+        getContentPane().add(txt_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 110, 30));
+
+        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        jLabel5.setText("Género:");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 60, -1));
+
+        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 14)); // NOI18N
+        jLabel6.setText("Tipo de Actividad:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 120, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, 140));
+
+        rd_masculino.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
+        rd_masculino.setText("Masculino");
+        getContentPane().add(rd_masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
+
+        rd_femenino.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
+        rd_femenino.setText("Femenino");
+        getContentPane().add(rd_femenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, -1, -1));
+
+        rd_sedentario.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
+        rd_sedentario.setText("Sedentario");
+        getContentPane().add(rd_sedentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, -1, -1));
+
+        rd_moderado.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
+        rd_moderado.setText("Moderado");
+        getContentPane().add(rd_moderado, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
+
+        rd_activo.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
+        rd_activo.setText("Activo");
+        getContentPane().add(rd_activo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, -1, -1));
+
+        btn_continuar.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 12)); // NOI18N
+        btn_continuar.setText("Continuar");
+        btn_continuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_continuarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_continuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 90, -1));
+
+        jLabel7.setFont(new java.awt.Font("Yu Gothic UI", 2, 14)); // NOI18N
+        jLabel7.setText("Recuerda que...");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 100, -1));
+
+        daaaa.setBackground(new java.awt.Color(204, 0, 102));
+        daaaa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/calcleverfondo.jpg"))); // NOI18N
+        getContentPane().add(daaaa, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continuarActionPerformed
+        // TODO add your handling code here:
+   
+        try {
+            int edad = Integer.parseInt(txt_edad.getText());
+            int estatura = Integer.parseInt(txt_estatura.getText());
+            double peso = Double.parseDouble(txt_peso.getText());
+            String genero = rd_masculino.isSelected() ? "Masculino" : "Femenino";
+            String actividad = rd_sedentario.isSelected() ? "Sedentario"
+                    : rd_moderado.isSelected() ? "Moderado" : "Activo";
+
+            if (edad < 1 || edad > 120 || estatura < 50 || estatura > 250 || peso < 2 || peso > 300) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Valores fuera de rango válido", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            
+            double calorias = CalculadoraCalorias.calcularCalorias(edad, estatura, peso, genero, actividad);
+            String recomendacion = CalculadoraCalorias.getRecomendacion(calorias);
+            
+            /*
+            Mile eliminas esto de joption cuando vaya a unirlo con tu inerfaz
+            y lo cambias por algo mas o menos así:
+              new nombre_interfaz(edad, estatura, peso, genero, actividad, calorias, recomendacion).setVisible(true);
+        this.dispose();
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ingresa números válidos", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+}
+            */
+
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "¡CÁLCULOS EXITOSOS! 🎉\n\n"
+                    + "Tus datos:\n"
+                    + "• Edad: " + edad + " años\n"
+                    + "• Estatura: " + estatura + " cm\n"
+                    + "• Peso: " + peso + " kg\n"
+                    + "• Género: " + genero + "\n"
+                    + "• Actividad: " + actividad + "\n\n"
+                    + "Calorías diarias: " + String.format("%.2f", calorias) + "\n\n"
+                    + recomendacion,
+                    "Resultados",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa números válidos", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btn_continuarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -69,5 +218,25 @@ public class Formu2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_continuar;
+    private javax.swing.JLabel daaaa;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JRadioButton rd_activo;
+    private javax.swing.JRadioButton rd_femenino;
+    private javax.swing.JRadioButton rd_masculino;
+    private javax.swing.JRadioButton rd_moderado;
+    private javax.swing.JRadioButton rd_sedentario;
+    private javax.swing.JTextField txt_edad;
+    private javax.swing.JTextField txt_estatura;
+    private javax.swing.JTextField txt_peso;
     // End of variables declaration//GEN-END:variables
 }
