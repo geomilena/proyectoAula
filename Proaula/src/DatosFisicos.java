@@ -53,6 +53,8 @@ public class DatosFisicos {
     }
     
     
+    
+    
     public int getEdad() {
         return edad; 
     }

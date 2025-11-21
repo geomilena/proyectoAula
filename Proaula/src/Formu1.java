@@ -249,7 +249,7 @@ public class Formu1 extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(20, 20, 660, 400);
+        jPanel2.setBounds(20, 10, 660, 400);
 
         jLabel2.setBackground(new java.awt.Color(0, 153, 102));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1.png"))); // NOI18N
@@ -267,6 +267,9 @@ public class Formu1 extends javax.swing.JFrame {
     private void btn_termineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_termineActionPerformed
         // TODO add your handling code here:
         validarYRegistrar();
+        new pag1().setVisible(true);
+        dispose();
+        //poner joption
     }//GEN-LAST:event_btn_termineActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

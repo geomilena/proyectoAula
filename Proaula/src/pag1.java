@@ -182,12 +182,15 @@ public class pag1 extends javax.swing.JFrame {
         for (Usuario u : ArrayListUsuarios.listaUsuarios) {
             if (u.getCorreo().equals(correo) && u.getContraseña().equals(pass)) {
                 JOptionPane.showMessageDialog(this, "¡Bienvenido, " + correo + "!");
-                new inicialusuario(correo).setVisible(true);
+                new Formu2(u).setVisible(true);
                 this.dispose();
                 encontrado = true;
                 break;
+                
             }
         }
+        
+       
 
         if (!encontrado) {
             JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos");
