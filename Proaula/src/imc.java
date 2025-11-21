@@ -120,7 +120,7 @@ public class imc extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         new recomendacion().setVisible(true);
+         new pag1().setVisible(true);
          dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

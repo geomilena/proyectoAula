@@ -149,32 +149,71 @@ public class Formu2 extends javax.swing.JFrame {
 
     private void btn_continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continuarActionPerformed
         // TODO add your handling code here:
-        
-   
+
         try {
-    int edad = Integer.parseInt(txt_edad.getText());
-    int estatura = Integer.parseInt(txt_estatura.getText());
-    double peso = Double.parseDouble(txt_peso.getText());
-    String genero = rd_masculino.isSelected() ? "Masculino" : "Femenino";
-    String actividad = rd_sedentario.isSelected() ? "Sedentario"
-            : rd_moderado.isSelected() ? "Moderado" : "Activo";
 
-    if (edad < 1 || edad > 120 || estatura < 50 || estatura > 250 || peso < 2 || peso > 300) {
-        JOptionPane.showMessageDialog(this, "Valores fuera de rango válido",
-                "Error", JOptionPane.ERROR_MESSAGE);
-        return;
-    }
+            // 1. VALIDAR RADIO BUTTONS ANTES DE TODO
+            if (!rd_masculino.isSelected() && !rd_femenino.isSelected()) {
+                JOptionPane.showMessageDialog(this,
+                        "Por favor selecciona tu género.",
+                        "Campo obligatorio",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
-DatosFisicos datosFisicos = new DatosFisicos(edad, estatura, peso, genero, actividad);
+            if (!rd_sedentario.isSelected() && !rd_moderado.isSelected() && !rd_activo.isSelected()) {
+                JOptionPane.showMessageDialog(this,
+                        "Por favor selecciona tu nivel de actividad.",
+                        "Campo obligatorio",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
 
-    double calorias = datosFisicos.getCaloriasDiarias();
-    String recomendacion = datosFisicos.getRecomendacion();
+            // 2. VALIDAR CAMPOS NUMÉRICOS
+            int edad = Integer.parseInt(txt_edad.getText());
+            int estatura = Integer.parseInt(txt_estatura.getText());
+            double peso = Double.parseDouble(txt_peso.getText());
 
-    Usuario usuarioActual = this.usuarioLogueado; 
+            // 3. OBTENER VALORES DE RADIO BUTTONS
+            String genero = rd_masculino.isSelected() ? "Masculino" : "Femenino";
+            String actividad = rd_sedentario.isSelected() ? "Sedentario"
+                    : rd_moderado.isSelected() ? "Moderado" : "Activo";
 
-    recomendacion pag = new recomendacion(this.usuarioLogueado, datosFisicos);
-    pag.setVisible(true);
-    this.dispose(); // cerrar esta ventana
+            // 4. VALIDAR RANGOS
+            if (edad < 1 || edad > 120
+                    || estatura < 50 || estatura > 250
+                    || peso < 2 || peso > 300) {
+
+                JOptionPane.showMessageDialog(this,
+                        "Valores fuera de rango válido",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            // 5. CREAR OBJETO DE DATOS FÍSICOS
+            DatosFisicos datosFisicos = new DatosFisicos(edad, estatura, peso, genero, actividad);
+
+            double calorias = datosFisicos.getCaloriasDiarias();
+            String recomendacion = datosFisicos.getRecomendacion();
+
+            Usuario usuarioActual = this.usuarioLogueado;
+
+            // 6. ABRIR SIGUIENTE VENTANA
+            recomendacion pag = new recomendacion(this.usuarioLogueado, datosFisicos);
+            pag.setVisible(true);
+            this.dispose();
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this,
+                    "Por favor ingresa valores numéricos válidos",
+                    "Error de formato", JOptionPane.ERROR_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,
+                    "Error: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_btn_continuarActionPerformed
 
     /**

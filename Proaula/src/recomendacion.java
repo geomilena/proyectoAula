@@ -28,13 +28,15 @@ public class recomendacion extends javax.swing.JFrame {
     
     private void cargarDatos(){
           textoemail.setText(usuarioLogueado.getCorreo());
-          textocalorias.setText(datos.getCaloriasDiarias() + "");
+          textocalorias.setText(String.format( "%.1f", datos.getCaloriasDiarias()));
           txtrecomendaciones.setText(datos.getRecomendacion());
           txtestatura.setText(String.valueOf(datos.getEstatura()));
           txtpeso.setText(String.valueOf(datos.getPeso()));
           txtnombre.setText(usuarioLogueado.getNombre());
           textoemail.setText(usuarioLogueado.getCorreo());
-          
+          txtImc.setText(String.format("%.1f", datos.getImc()));
+          textoestado.setText(datos.getEstadoImc());
+          txtedad.setText(datos.getEdad() + "");
     }
 
     /**
@@ -51,7 +53,6 @@ public class recomendacion extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtnombreusuario = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        txtrecomendaciones = new javax.swing.JTextField();
         jfiel = new javax.swing.JLabel();
         textoemail = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -63,11 +64,12 @@ public class recomendacion extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         textocalorias = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtImc = new javax.swing.JTextField();
         textoestado = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        txtEdad = new javax.swing.JTextField();
+        txtedad = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtrecomendaciones = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -93,14 +95,6 @@ public class recomendacion extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        txtrecomendaciones.setEditable(false);
-        txtrecomendaciones.setBackground(new java.awt.Color(204, 204, 255));
-        txtrecomendaciones.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtrecomendacionesActionPerformed(evt);
             }
         });
 
@@ -150,27 +144,22 @@ public class recomendacion extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(204, 204, 255));
+        txtImc.setEditable(false);
+        txtImc.setBackground(new java.awt.Color(204, 204, 255));
 
         textoestado.setEditable(false);
         textoestado.setBackground(new java.awt.Color(204, 204, 255));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 255));
-        jButton2.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("Aprende sobre el IMC");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        txtEdad.setEditable(false);
-        txtEdad.setBackground(new java.awt.Color(204, 204, 255));
+        txtedad.setEditable(false);
+        txtedad.setBackground(new java.awt.Color(204, 204, 255));
 
         txtnombre.setEditable(false);
         txtnombre.setBackground(new java.awt.Color(204, 204, 255));
+
+        txtrecomendaciones.setBackground(new java.awt.Color(204, 204, 255));
+        txtrecomendaciones.setColumns(20);
+        txtrecomendaciones.setRows(5);
+        jScrollPane1.setViewportView(txtrecomendaciones);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -192,19 +181,17 @@ public class recomendacion extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jfiel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtestatura, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textoemail)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(txtestatura, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtnombreusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(87, 87, 87)
-                                        .addComponent(textoemail)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtnombreusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(16, 16, 16)))
                         .addComponent(jLabel3)
                         .addGap(45, 45, 45))
@@ -214,24 +201,19 @@ public class recomendacion extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(102, 102, 102))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtrecomendaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textoestado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textocalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(40, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
-                                .addGap(83, 83, 83))))))
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel8))
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoestado, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtImc, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textocalorias, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,32 +240,29 @@ public class recomendacion extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(txtpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jfiel))))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtrecomendaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(textocalorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
+                            .addComponent(txtImc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(textoestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addComponent(jButton2)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(textoestado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 5, 700, 410);
+        jPanel1.setBounds(10, 10, 700, 410);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -292,10 +271,6 @@ public class recomendacion extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtrecomendacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrecomendacionesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtrecomendacionesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int confirmacion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que deseas cerrar sesión?", "Confirmar cierre de sesión", JOptionPane.YES_NO_OPTION);
@@ -309,11 +284,6 @@ public class recomendacion extends javax.swing.JFrame {
     private void textocaloriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textocaloriasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textocaloriasActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new imc().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,7 +322,6 @@ public class recomendacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -363,16 +332,17 @@ public class recomendacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jfiel;
     private javax.swing.JTextField textocalorias;
     private javax.swing.JLabel textoemail;
     private javax.swing.JTextField textoestado;
-    private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtImc;
+    private javax.swing.JTextField txtedad;
     private javax.swing.JTextField txtestatura;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JLabel txtnombreusuario;
     private javax.swing.JTextField txtpeso;
-    private javax.swing.JTextField txtrecomendaciones;
+    private javax.swing.JTextArea txtrecomendaciones;
     // End of variables declaration//GEN-END:variables
 }

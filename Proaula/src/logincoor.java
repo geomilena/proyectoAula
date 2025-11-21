@@ -144,29 +144,39 @@ public class logincoor extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String user = entraemailcoor.getText();
-String pass = entrapasscoor.getText();
+    String pass = entrapasscoor.getText();
 
+    String[] usuarios = {"Sandoval@gmail.com"};
+    String[] contraseñas = {"12345@"};
 
-String[] usuarios = {"Sandoval@gmail.com"};
-String[] contraseñas = {"12345@"};
+    boolean valido = false;
 
-
-boolean valido = false;
-
-
-for (int i = 0; i < usuarios.length; i++) {
-    if (usuarios[i].equals(user) && contraseñas[i].equals(pass)) {
-        JOptionPane.showMessageDialog(this, "Bienvenido coordinador");
-        new Formu2().setVisible(true);
-        this.dispose();
-        valido = true;
-        break;
+    for (int i = 0; i < usuarios.length; i++) {
+        if (usuarios[i].equals(user) && contraseñas[i].equals(pass)) {
+            JOptionPane.showMessageDialog(this, "Bienvenido coordinador");
+            
+            // CREAR USUARIO COORDINADOR CON LOS PARÁMETROS REQUERIDOS
+            Usuario coordinador = new UsuarioCoordinador(
+                "Coordinador",     // nombre
+                "Sistema",         // apellidos  
+                user,              // correo (email)
+                pass,              // contraseña
+                "Administración",  // area
+                "COORD001",        // codigo
+                "001",             // id
+                "Coordinador"      // cargo
+            );
+            
+            new Formu2(coordinador).setVisible(true);
+            this.dispose();
+            valido = true;
+            break;
+        }
     }
-}
 
-if (!valido) {
-    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
-}
+    if (!valido) {
+        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+    }
     
 
 
