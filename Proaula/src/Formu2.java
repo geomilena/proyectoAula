@@ -161,8 +161,19 @@ public class Formu2 extends javax.swing.JFrame {
             
             double calorias = CalculadoraCalorias.calcularCalorias(edad, estatura, peso, genero, actividad);
             String recomendacion = CalculadoraCalorias.getRecomendacion(calorias);
-
             
+            /*
+            Mile eliminas esto de joption cuando vaya a unirlo con tu inerfaz
+            y lo cambias por algo mas o menos así:
+              new nombre_interfaz(edad, estatura, peso, genero, actividad, calorias, recomendacion).setVisible(true);
+        this.dispose();
+
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ingresa números válidos", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+}
+            */
+
             javax.swing.JOptionPane.showMessageDialog(this,
                     "¡CÁLCULOS EXITOSOS! 🎉\n\n"
                     + "Tus datos:\n"
