@@ -38,6 +38,7 @@ public class pag1 extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         manzana.setBackground(new java.awt.Color(255, 255, 255));
+        manzana.setOpaque(false);
 
         btn_iniciar.setText("Iniciar");
         btn_iniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -46,9 +47,11 @@ public class pag1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Iniciar Sesion");
 
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Email");
 
         entra_email.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +60,7 @@ public class pag1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Contraseña");
 
         entra_contraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -72,8 +76,10 @@ public class pag1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Eres nuevo?");
 
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Soy Coordinador");
 
         jButton3.setText("Iniciar");
@@ -87,11 +93,18 @@ public class pag1 extends javax.swing.JFrame {
         manzana.setLayout(manzanaLayout);
         manzanaLayout.setHorizontalGroup(
             manzanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manzanaLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(25, 25, 25))
             .addGroup(manzanaLayout.createSequentialGroup()
                 .addGroup(manzanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manzanaLayout.createSequentialGroup()
-                        .addGap(264, 264, 264)
-                        .addComponent(jLabel1))
                     .addGroup(manzanaLayout.createSequentialGroup()
                         .addGap(310, 310, 310)
                         .addComponent(jLabel3))
@@ -106,18 +119,11 @@ public class pag1 extends javax.swing.JFrame {
                         .addGap(246, 246, 246)
                         .addGroup(manzanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(entra_email)
-                            .addComponent(entra_contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))))
-                .addContainerGap(257, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manzanaLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addGap(25, 25, 25))
+                            .addComponent(entra_contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)))
+                    .addGroup(manzanaLayout.createSequentialGroup()
+                        .addGap(254, 254, 254)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         manzanaLayout.setVerticalGroup(
             manzanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,7 +155,7 @@ public class pag1 extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 720, 430);
+        jLabel2.setBounds(0, 0, 710, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,17 +196,8 @@ public class pag1 extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_iniciarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String correo = JOptionPane.showInputDialog("Nuevo correo:");
-        String contraseña = JOptionPane.showInputDialog("Nueva contraseña");
-        if (correo == null || correo.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Registro cancelado o correo vacio");
-            return;
-        }
-
-        Usuario nuevoUsuario = new Usuario(correo, contraseña);
-        ArrayListUsuarios.listaUsuarios.add(nuevoUsuario);
-
-        JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
+        new Formu1().setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
