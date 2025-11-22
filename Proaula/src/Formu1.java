@@ -16,6 +16,8 @@ public class Formu1 extends javax.swing.JFrame {
      */
     public Formu1() {
         initComponents();
+                setSize(720,440);
+
     }
 
     private void validarYRegistrar() {

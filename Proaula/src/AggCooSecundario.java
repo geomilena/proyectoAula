@@ -14,6 +14,8 @@ public class AggCooSecundario extends javax.swing.JFrame {
      */
         public AggCooSecundario() {
         initComponents();
+                setSize(720,440);
+
     }
         private void ValidarDatosCoo(){
             

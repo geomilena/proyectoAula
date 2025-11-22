@@ -6,10 +6,10 @@
 /**
  *
  * @author marii
- */
-public class DataCoo {
-  
-    public static UsuarioCoordinador coordinadorPrincipal = null;
+ */import java.util.ArrayList;
 
+public class ArrayListCooPrincipal {
+    public static ArrayList<Coorprincipal> ListaCooP = new ArrayList<>();
+    public static Coorprincipal coordinadorPrincipal = null; 
 }
 
