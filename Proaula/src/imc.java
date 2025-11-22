@@ -5,7 +5,7 @@
 
 /**
  *
- * @author user
+ * @author Georsa Diaz
  */
 public class imc extends javax.swing.JFrame {
 

@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author Georsa Diaz
  */
 public class recomendacion extends javax.swing.JFrame {
     private Usuario usuarioLogueado;

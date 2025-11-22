@@ -66,7 +66,12 @@ public class Formu1 extends javax.swing.JFrame {
         }
 
         if (exito) {
-            Usuario nuevoUsuario = new Usuario(nombreText, apellidosText, correoText, claveText);
+            Usuario nuevoUsuario = new Usuario(nombreText, apellidosText, correoText, claveText) {
+                @Override
+                public String getTipoUsuario() {
+                    throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+                }
+            };
             ArrayListUsuarios.listaUsuarios.add(nuevoUsuario);
 
             System.out.println("Usuario guardado. Total: " + ArrayListUsuarios.listaUsuarios.size());
