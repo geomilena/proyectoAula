@@ -33,6 +33,8 @@ public class DatosFisicos {
     private double calcularCalorias() {
         double tmb;
         
+        //tasa metabolica basal
+        // Harris benedict
         if (genero.equalsIgnoreCase("Masculino")) {
             tmb = 88.362 + (13.397 * peso) + (4.799 * estatura) - (5.677 * edad);
         } else {

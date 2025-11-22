@@ -67,6 +67,11 @@ public class inicialusuario extends javax.swing.JFrame {
         jLabel3.setText("Genero:");
 
         entragenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Femenino", "Masculino" }));
+        entragenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entrageneroActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Edad:");
 
@@ -424,6 +429,10 @@ public class inicialusuario extends javax.swing.JFrame {
     private void entra_actividadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entra_actividadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_entra_actividadActionPerformed
+
+    private void entrageneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrageneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entrageneroActionPerformed
 
     /**
      * @param args the command line arguments

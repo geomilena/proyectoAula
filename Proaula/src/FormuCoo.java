@@ -79,9 +79,7 @@ public class FormuCoo extends javax.swing.JFrame {
     area.setText("");
     id.setText("");
     codigo.setText("");
-    cargo.setText("");
-
-        
+    cargo.setText("");    
         
     }
 
@@ -172,7 +170,7 @@ public class FormuCoo extends javax.swing.JFrame {
                             .addComponent(area)
                             .addComponent(clave, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
+                        .addGap(143, 143, 143)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -181,7 +179,7 @@ public class FormuCoo extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
                                 .addGap(58, 58, 58)))))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(125, 125, 125)
                 .addComponent(jLabel9)

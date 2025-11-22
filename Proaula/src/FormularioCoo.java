@@ -14,6 +14,7 @@ public class FormularioCoo extends javax.swing.JFrame {
      */
     public FormularioCoo() {
         initComponents();
+        setSize(720, 440);
     }
 
     /**
