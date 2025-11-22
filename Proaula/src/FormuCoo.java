@@ -16,6 +16,7 @@ public class FormuCoo extends javax.swing.JFrame {
      */
     public FormuCoo() {
         initComponents();
+        setSize(720,440);
     }
      private void ValidarDatosCoo(){
             
@@ -26,8 +27,8 @@ public class FormuCoo extends javax.swing.JFrame {
         String areaText = area.getText();
         String idText = id.getText();
         String codigoText = codigo.getText();
-        String cargoText = cargo.getText();
-        
+        String cargoText = cargo.getSelectedItem().toString();
+
         if (!ValidarDatosCoo.validarNombre(nombreText)) {
             javax.swing.JOptionPane.showMessageDialog(this,
                     "Nombre inválido:\n- Debe tener al menos 2 caracteres\n- No puede estar vacío",
@@ -58,18 +59,17 @@ public class FormuCoo extends javax.swing.JFrame {
                     "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
-  if (DataCoo.coordinadorPrincipal != null) {
+  if (ArrayListCooPrincipal.coordinadorPrincipal != null) {
         JOptionPane.showMessageDialog(null, "Ya existe un coordinador principal registrado");
         return;
     
      }
-      UsuarioCoordinador nuevoCoordinador = new UsuarioCoordinador(
+      Coorprincipal nuevoCoordinador = new Coorprincipal(
             nombreText, apellidosText, correoText, claveText,
             areaText, cargoText, codigoText, idText
     );
 
-    DataCoo.coordinadorPrincipal = nuevoCoordinador;  // ←
-
+ArrayListCooPrincipal.ListaCooP.add(nuevoCoordinador);
     JOptionPane.showMessageDialog(null, "Coordinador principal registrado con éxito");
 
     nombre.setText("");
@@ -79,7 +79,8 @@ public class FormuCoo extends javax.swing.JFrame {
     area.setText("");
     id.setText("");
     codigo.setText("");
-    cargo.setText("");    
+    cargo.setSelectedIndex(0); 
+        
         
     }
 
@@ -98,7 +99,6 @@ public class FormuCoo extends javax.swing.JFrame {
         nombre = new javax.swing.JTextField();
         apellidos = new javax.swing.JTextField();
         id = new javax.swing.JTextField();
-        cargo = new javax.swing.JTextField();
         correo = new javax.swing.JTextField();
         codigo = new javax.swing.JTextField();
         area = new javax.swing.JTextField();
@@ -111,6 +111,8 @@ public class FormuCoo extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        Atras = new javax.swing.JButton();
+        cargo = new javax.swing.JComboBox<>();
         registrarbtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -138,6 +140,20 @@ public class FormuCoo extends javax.swing.JFrame {
 
         jLabel10.setText("Clave:");
 
+        Atras.setText("Atras");
+        Atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtrasActionPerformed(evt);
+            }
+        });
+
+        cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Principal", "Secundario", " " }));
+        cargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -149,28 +165,11 @@ public class FormuCoo extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(166, 166, 166))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(175, 175, 175))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(correo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(cargo)
-                            .addComponent(id)
-                            .addComponent(nombre))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(apellidos)
-                            .addComponent(codigo)
-                            .addComponent(area)
-                            .addComponent(clave, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
+                        .addContainerGap()
+                        .addComponent(Atras)
+                        .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -178,8 +177,30 @@ public class FormuCoo extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel4)
-                                .addGap(58, 58, 58)))))
-                .addContainerGap(82, Short.MAX_VALUE))
+                                .addGap(58, 58, 58))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(correo, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(id)
+                                    .addComponent(nombre)
+                                    .addComponent(cargo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(apellidos)
+                                .addComponent(codigo)
+                                .addComponent(area)
+                                .addComponent(clave, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)))))
+                .addContainerGap(113, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(125, 125, 125)
                 .addComponent(jLabel9)
@@ -190,7 +211,11 @@ public class FormuCoo extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Atras)))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -213,8 +238,8 @@ public class FormuCoo extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -236,7 +261,7 @@ public class FormuCoo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(registrarbtn);
-        registrarbtn.setBounds(575, 390, 80, 23);
+        registrarbtn.setBounds(520, 370, 80, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1.png"))); // NOI18N
         jLabel1.setText("g");
@@ -250,6 +275,15 @@ public class FormuCoo extends javax.swing.JFrame {
 ValidarDatosCoo();
 // TODO add your handling code here:
     }//GEN-LAST:event_registrarbtnActionPerformed
+
+    private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
+new logincoor().setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_AtrasActionPerformed
+
+    private void cargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cargoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,9 +321,10 @@ ValidarDatosCoo();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Atras;
     private javax.swing.JTextField apellidos;
     private javax.swing.JTextField area;
-    private javax.swing.JTextField cargo;
+    private javax.swing.JComboBox<String> cargo;
     private javax.swing.JTextField clave;
     private javax.swing.JTextField codigo;
     private javax.swing.JTextField correo;

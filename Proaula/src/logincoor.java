@@ -1,6 +1,7 @@
 import javax.swing.JOptionPane;
 public class logincoor extends javax.swing.JFrame {
 
+
     /**
      * Creates new form logincoor
      */
@@ -23,11 +24,13 @@ public class logincoor extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        entraemailcoor = new javax.swing.JTextField();
+        correo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        entrapasscoor = new javax.swing.JTextField();
+        clave = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        registrar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,9 +55,9 @@ public class logincoor extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Contraseña");
 
-        entrapasscoor.addActionListener(new java.awt.event.ActionListener() {
+        clave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                entrapasscoorActionPerformed(evt);
+                claveActionPerformed(evt);
             }
         });
 
@@ -68,6 +71,15 @@ public class logincoor extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Inicio de sesion solo para coordinadores de CalClever");
 
+        registrar.setText("Registrar");
+        registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Registrar coordinador principal:");
+
         javax.swing.GroupLayout luloLayout = new javax.swing.GroupLayout(lulo);
         lulo.setLayout(luloLayout);
         luloLayout.setHorizontalGroup(
@@ -75,7 +87,7 @@ public class logincoor extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, luloLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(215, 215, 215))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, luloLayout.createSequentialGroup()
@@ -85,18 +97,23 @@ public class logincoor extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addGap(332, 332, 332))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, luloLayout.createSequentialGroup()
-                        .addGroup(luloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jButton1))
-                        .addGap(298, 298, 298))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, luloLayout.createSequentialGroup()
                         .addGroup(luloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(entraemailcoor)
-                            .addComponent(entrapasscoor, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                            .addComponent(correo)
+                            .addComponent(clave, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
                         .addGap(238, 238, 238))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, luloLayout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(205, 205, 205))))
+                        .addGap(205, 205, 205))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, luloLayout.createSequentialGroup()
+                        .addGroup(luloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jButton1))
+                        .addGap(300, 300, 300))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, luloLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(registrar)
+                        .addGap(39, 39, 39))))
         );
         luloLayout.setVerticalGroup(
             luloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,14 +128,21 @@ public class logincoor extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addComponent(entraemailcoor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addGap(19, 19, 19)
-                .addComponent(entrapasscoor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(67, 67, 67)
+                .addGroup(luloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(luloLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addComponent(registrar))
+                    .addGroup(luloLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6)))
+                .addGap(21, 21, 21)
                 .addComponent(jLabel5)
                 .addGap(19, 19, 19))
         );
@@ -134,55 +158,62 @@ public class logincoor extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void entrapasscoorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrapasscoorActionPerformed
+    private void claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_entrapasscoorActionPerformed
+    }//GEN-LAST:event_claveActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
          new pag1().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String user = entraemailcoor.getText();
-    String pass = entrapasscoor.getText();
+        String cor = correo.getText().trim();
+    String cla = clave.getText().trim();
 
-    String[] usuarios = {"Sandoval@gmail.com"};
-    String[] contraseñas = {"12345@"};
+    if(cor.isEmpty() || cla.isEmpty()){
+        JOptionPane.showMessageDialog(null, "Ingrese correo y clave");
+        return;
+    }
 
-    boolean valido = false;
+  
+    for (Coorprincipal cp : ArrayListCooPrincipal.ListaCooP) {
+        if (cp.getCorreo().equalsIgnoreCase(cor) && 
+            cp.getContraseña().equals(cla)) {
 
-    for (int i = 0; i < usuarios.length; i++) {
-        if (usuarios[i].equals(user) && contraseñas[i].equals(pass)) {
-            JOptionPane.showMessageDialog(this, "Bienvenido coordinador");
-            
-            // CREAR USUARIO COORDINADOR CON LOS PARÁMETROS REQUERIDOS
-            Usuario coordinador = new UsuarioCoordinador(
-                "Coordinador",     // nombre
-                "Sistema",         // apellidos  
-                user,              // correo (email)
-                pass,              // contraseña
-                "Administración",  // area
-                "COORD001",        // codigo
-                "001",             // id
-                "Coordinador"      // cargo
-            );
-            
-            new Formu2(coordinador).setVisible(true);
+            JOptionPane.showMessageDialog(null, "Bienvenido Coordinador Principal");
+
+            new InicioCooPrincipal().setVisible(true);
             this.dispose();
-            valido = true;
-            break;
+            return;
         }
     }
 
-    if (!valido) {
-        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+    
+    for (UsuarioCoordinador sc : ArraylistCoo.ListaCoo) {
+        if (sc.getCorreo().equalsIgnoreCase(cor) && 
+            sc.getContraseña().equals(cla)) {
+
+            JOptionPane.showMessageDialog(null, "Bienvenido Subcoordinador");
+
+            new InicioCooSecundario().setVisible(true);
+            this.dispose();
+            return;
+        
     }
+
+   
+    JOptionPane.showMessageDialog(null, "Datos incorrectos");
+}
     
 
 
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+       new FormuCoo().setVisible(true);   // TODO add your handling code here:
+    }//GEN-LAST:event_registrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,8 +251,8 @@ public class logincoor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField entraemailcoor;
-    private javax.swing.JTextField entrapasscoor;
+    private javax.swing.JTextField clave;
+    private javax.swing.JTextField correo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -229,6 +260,8 @@ public class logincoor extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel lulo;
+    private javax.swing.JButton registrar;
     // End of variables declaration//GEN-END:variables
 }

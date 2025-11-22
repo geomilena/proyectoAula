@@ -1,7 +1,7 @@
 
 import javax.swing.JOptionPane;
 
-public  class pag1 extends javax.swing.JFrame {
+public class pag1 extends javax.swing.JFrame {
 
     /**
      * Creates new form pag1
@@ -9,7 +9,7 @@ public  class pag1 extends javax.swing.JFrame {
     public pag1() {
         initComponents();
         setSize(720, 440);
-        
+        manzana.setOpaque(false);
     }
 
     /**
@@ -32,14 +32,12 @@ public  class pag1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
         manzana.setBackground(new java.awt.Color(255, 255, 255));
-        manzana.setOpaque(false);
 
         btn_iniciar.setText("Iniciar");
         btn_iniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -48,12 +46,9 @@ public  class pag1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         jLabel1.setText("Iniciar Sesion");
 
-        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Email");
 
         entra_email.addActionListener(new java.awt.event.ActionListener() {
@@ -62,8 +57,6 @@ public  class pag1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Contraseña");
 
         entra_contraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -79,12 +72,8 @@ public  class pag1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Eres nuevo?");
 
-        jLabel6.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Soy Coordinador");
 
         jButton3.setText("Iniciar");
@@ -94,34 +83,15 @@ public  class pag1 extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI Light", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Aprende sobre el imc con nosotros!");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout manzanaLayout = new javax.swing.GroupLayout(manzana);
         manzana.setLayout(manzanaLayout);
         manzanaLayout.setHorizontalGroup(
             manzanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manzanaLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(46, 46, 46)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addGap(25, 25, 25))
             .addGroup(manzanaLayout.createSequentialGroup()
                 .addGroup(manzanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manzanaLayout.createSequentialGroup()
+                        .addGap(264, 264, 264)
+                        .addComponent(jLabel1))
                     .addGroup(manzanaLayout.createSequentialGroup()
                         .addGap(310, 310, 310)
                         .addComponent(jLabel3))
@@ -133,14 +103,21 @@ public  class pag1 extends javax.swing.JFrame {
                                 .addGap(8, 8, 8)
                                 .addComponent(jLabel4))))
                     .addGroup(manzanaLayout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(jLabel1))
-                    .addGroup(manzanaLayout.createSequentialGroup()
                         .addGap(246, 246, 246)
                         .addGroup(manzanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(entra_email)
                             .addComponent(entra_contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))))
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(257, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, manzanaLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(25, 25, 25))
         );
         manzanaLayout.setVerticalGroup(
             manzanaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,18 +139,17 @@ public  class pag1 extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(jButton3))
                 .addGap(19, 19, 19))
         );
 
         getContentPane().add(manzana);
-        manzana.setBounds(30, 20, 660, 395);
+        manzana.setBounds(30, 20, 664, 395);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 710, 430);
+        jLabel2.setBounds(0, 0, 720, 430);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -198,23 +174,24 @@ public  class pag1 extends javax.swing.JFrame {
 
         for (Usuario u : ArrayListUsuarios.listaUsuarios) {
             if (u.getCorreo().equals(correo) && u.getContraseña().equals(pass)) {
-    encontrado = true;
+                encontrado = true;
 
-    String tipo = u.getTipoUsuario();
+                String tipo = u.getTipoUsuario();
 
-    if (tipo.equals("Usuario Normal")) {
-        JOptionPane.showMessageDialog(this, "¡Bienvenido usuario " + u.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-        new Formu2(u).setVisible(true);
-    } else if (tipo.equals("Coordinador")) {
-        JOptionPane.showMessageDialog(this, "¡Bienvenido coordinador " + u.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-    }
+                if (tipo.equals("Usuario Normal")) {
+                    JOptionPane.showMessageDialog(this, "¡Bienvenido usuario " + u.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    new Formu2().setVisible(true);
+                } else if (tipo.equals("Coordinador")) {
+                    JOptionPane.showMessageDialog(this, "¡Bienvenido coordinador " + u.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "¡Bienvenido " + u.getNombre() + "!", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    new Formu2().setVisible(true);
+                }
 
-    this.dispose();
-    break;
-}
+                this.dispose();
+                break;
+            }
         }
-        
-       
 
         if (!encontrado) {
             JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
@@ -222,24 +199,25 @@ public  class pag1 extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_iniciarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new imc().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String correo = JOptionPane.showInputDialog("Nuevo correo:");
+        String contraseña = JOptionPane.showInputDialog("Nueva contraseña");
+        if (correo == null || correo.trim().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Registro cancelado o correo vacio");
+            return;
+        }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-     new Formu1().setVisible(true);
-     dispose();
-}
+        Usuario nuevoUsuario = new UsuarioNormal(correo, contraseña);
+        ArrayListUsuarios.listaUsuarios.add(nuevoUsuario);
 
-           
+        JOptionPane.showMessageDialog(null, "Usuario registrado correctamente");
 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
- 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -275,7 +253,6 @@ public  class pag1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_iniciar;
     private javax.swing.JTextField entra_contraseña;
     private javax.swing.JTextField entra_email;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;

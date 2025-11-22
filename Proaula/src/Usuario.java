@@ -49,8 +49,3 @@ public abstract class Usuario {
         this.contraseña = contraseña;
     }
 }
-
-//clase padre
-
-
-

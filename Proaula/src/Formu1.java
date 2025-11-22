@@ -16,7 +16,8 @@ public class Formu1 extends javax.swing.JFrame {
      */
     public Formu1() {
         initComponents();
-        setSize(720, 440);
+                setSize(720,440);
+
     }
 
     private void validarYRegistrar() {
@@ -67,12 +68,7 @@ public class Formu1 extends javax.swing.JFrame {
         }
 
         if (exito) {
-            Usuario nuevoUsuario = new Usuario(nombreText, apellidosText, correoText, claveText) {
-                @Override
-                public String getTipoUsuario() {
-    return "Usuario Normal";  // ← CAMBIA ESTA LÍNEA
-}
-            };
+            Usuario nuevoUsuario = new UsuarioNormal(nombreText, apellidosText, correoText, claveText);
             ArrayListUsuarios.listaUsuarios.add(nuevoUsuario);
 
             System.out.println("Usuario guardado. Total: " + ArrayListUsuarios.listaUsuarios.size());
@@ -111,7 +107,6 @@ public class Formu1 extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         clave = new javax.swing.JTextField();
         btn_termine = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -138,11 +133,21 @@ public class Formu1 extends javax.swing.JFrame {
         jLabel3.setText("Nombre: ");
 
         nombre.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 12)); // NOI18N
+        nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 2, 14)); // NOI18N
         jLabel4.setText("Apellidos: ");
 
         apellidos.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 12)); // NOI18N
+        apellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellidosActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic Light", 2, 14)); // NOI18N
         jLabel5.setText("Correo(Inicio de Sesion):");
@@ -167,15 +172,6 @@ public class Formu1 extends javax.swing.JFrame {
         btn_termine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_termineActionPerformed(evt);
-            }
-        });
-
-        jButton1.setBackground(new java.awt.Color(204, 204, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Atras");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -218,19 +214,14 @@ public class Formu1 extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(122, 122, 122))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(291, 291, 291)
                 .addComponent(btn_termine)
-                .addGap(283, 283, 283))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
                 .addGap(44, 44, 44)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -240,7 +231,7 @@ public class Formu1 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
@@ -248,9 +239,9 @@ public class Formu1 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(41, 41, 41)
                 .addComponent(btn_termine)
-                .addGap(37, 37, 37))
+                .addGap(14, 14, 14))
         );
 
         getContentPane().add(jPanel2);
@@ -274,10 +265,13 @@ public class Formu1 extends javax.swing.JFrame {
         validarYRegistrar();
     }//GEN-LAST:event_btn_termineActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
-       new pag1().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_nombreActionPerformed
+
+    private void apellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apellidosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -309,7 +303,6 @@ public class Formu1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_termine;
     private javax.swing.JTextField clave;
     private javax.swing.JTextField correo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

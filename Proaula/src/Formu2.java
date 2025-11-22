@@ -1,6 +1,3 @@
-
-import javax.swing.JOptionPane;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -13,15 +10,12 @@ import javax.swing.JOptionPane;
 public class Formu2 extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Formu2.class.getName());
-    private Usuario usuarioLogueado;
 
     /**
      * Creates new form Formu2
      */
-    public Formu2(Usuario usuario) {
+    public Formu2() {
         initComponents();
-        setSize(720, 440);
-        this.usuarioLogueado = usuario;
         javax.swing.ButtonGroup grupoGenero = new javax.swing.ButtonGroup();
         grupoGenero.add(rd_masculino);
         grupoGenero.add(rd_femenino);
@@ -150,78 +144,78 @@ public class Formu2 extends javax.swing.JFrame {
 
     private void btn_continuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_continuarActionPerformed
         // TODO add your handling code here:
-
+   
         try {
-
-            // 1. VALIDAR RADIO BUTTONS ANTES DE TODO
-            if (!rd_masculino.isSelected() && !rd_femenino.isSelected()) {
-                JOptionPane.showMessageDialog(this,
-                        "Por favor selecciona tu género.",
-                        "Campo obligatorio",
-                        JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-
-            if (!rd_sedentario.isSelected() && !rd_moderado.isSelected() && !rd_activo.isSelected()) {
-                JOptionPane.showMessageDialog(this,
-                        "Por favor selecciona tu nivel de actividad.",
-                        "Campo obligatorio",
-                        JOptionPane.WARNING_MESSAGE);
-                return;
-            }
-
-           
             int edad = Integer.parseInt(txt_edad.getText());
             int estatura = Integer.parseInt(txt_estatura.getText());
             double peso = Double.parseDouble(txt_peso.getText());
-
-           
             String genero = rd_masculino.isSelected() ? "Masculino" : "Femenino";
             String actividad = rd_sedentario.isSelected() ? "Sedentario"
                     : rd_moderado.isSelected() ? "Moderado" : "Activo";
 
-          
-            if (edad < 1 || edad > 120
-                    || estatura < 50 || estatura > 250
-                    || peso < 2 || peso > 300) {
-
-                JOptionPane.showMessageDialog(this,
-                        "Valores fuera de rango válido",
-                        "Error", JOptionPane.ERROR_MESSAGE);
+            if (edad < 1 || edad > 120 || estatura < 50 || estatura > 250 || peso < 2 || peso > 300) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Valores fuera de rango válido", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
                 return;
             }
 
             
-            DatosFisicos datosFisicos = new DatosFisicos(edad, estatura, peso, genero, actividad);
+            double calorias = CalculadoraCalorias.calcularCalorias(edad, estatura, peso, genero, actividad);
+            String recomendacion = CalculadoraCalorias.getRecomendacion(calorias);
+            
+            /*
+            Mile eliminas esto de joption cuando vaya a unirlo con tu inerfaz
+            y lo cambias por algo mas o menos así:
+              new nombre_interfaz(edad, estatura, peso, genero, actividad, calorias, recomendacion).setVisible(true);
+        this.dispose();
 
-            double calorias = datosFisicos.getCaloriasDiarias();
-            String recomendacion = datosFisicos.getRecomendacion();
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Ingresa números válidos", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+}
+            */
 
-            Usuario usuarioActual = this.usuarioLogueado;
-
-            // 
-            recomendacion pag = new recomendacion(this.usuarioLogueado, datosFisicos);
-            pag.setVisible(true);
-            this.dispose();
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "¡CÁLCULOS EXITOSOS! 🎉\n\n"
+                    + "Tus datos:\n"
+                    + "• Edad: " + edad + " años\n"
+                    + "• Estatura: " + estatura + " cm\n"
+                    + "• Peso: " + peso + " kg\n"
+                    + "• Género: " + genero + "\n"
+                    + "• Actividad: " + actividad + "\n\n"
+                    + "Calorías diarias: " + String.format("%.2f", calorias) + "\n\n"
+                    + recomendacion,
+                    "Resultados",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this,
-                    "Por favor ingresa valores numéricos válidos",
-                    "Error de formato", JOptionPane.ERROR_MESSAGE);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,
-                    "Error: " + e.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa números válidos", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_btn_continuarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
-    
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new Formu2().setVisible(true));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_continuar;
